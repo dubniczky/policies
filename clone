@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Clone a policy template from the dubniczky/policies repo
+
+if [ -z "$1" ] || [ "$1" = "-h" ] ; then
+    echo "Usage: $0 <template> [path]"
+    exit 1
+fi
+
+path=$2
+if [ -z "$path" ]; then
+    path="$1.json"
+fi
+
+curl -s https://raw.githubusercontent.com/dubniczky/policies/master/templates/$1.json \
+    > $path
