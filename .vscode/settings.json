@@ -1,0 +1,6 @@
+{
+    // Added explicit file association for JSON, because VSC sometimes treats templates/*.json files as Django templates
+    "files.associations": {
+        "*.json": "json",
+    }
+}
