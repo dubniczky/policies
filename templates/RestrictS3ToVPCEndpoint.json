@@ -10,12 +10,12 @@
                 "s3:DeleteObject"
             ],
             "Resource": [
-                "arn:aws:s3:::{bucket-name}",
-                "arn:aws:s3:::{bucket-name}/*"
+                "arn:aws:s3:::{{bucket-name}}",
+                "arn:aws:s3:::{{bucket-name}}/*"
             ],
             "Condition": {
                 "StringNotEquals": {
-                    "aws:sourceVpce": "{vpc-endpoint-id}"
+                    "aws:sourceVpce": "{{vpc-endpoint-id}}"
                 }
             }
         }
