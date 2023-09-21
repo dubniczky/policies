@@ -5,10 +5,10 @@ import re
 import sys
 
 local_repository = os.path.dirname(__file__)
-field_regex = r'\{\{([a-zA-Z0-9]+?)\}\}'
+field_regex = r'\{\{([a-zA-Z0-9-_]+?)\}\}'
 
 
-with open(f"{local_repository}/templates/{sys.argv[1]}.json", 'r') as f:
+with open(f"{local_repository}/templates/{sys.argv[1]}.json", 'r', encoding='utf8') as f:
     template = f.read()
     
 matches = list(re.finditer(field_regex, template, re.MULTILINE))
@@ -25,7 +25,7 @@ for field_name in field_names:
 
 # Substitute values
 for field_name, field_value in zip(field_names, field_values):
-    template = re.sub('\{\{' + field_name + '\}\}', field_value, template, flags=re.MULTILINE)
+    template = re.sub('\\{\\{' + field_name + '\\}\\}', field_value, template, flags=re.MULTILINE)
 print('=' * 16)
     
 # Output to STDERR
