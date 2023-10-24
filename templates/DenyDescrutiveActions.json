@@ -1,0 +1,21 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [
+                "ec2:Delete*",
+                "ec2:TerminateInstances",
+                "s3:Delete*",
+                "route53:Delete*",
+                "glacier:Delete*",
+                "rds:Delete*",
+                "cloudtrail:Delete*",
+                "iam:Delete*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
